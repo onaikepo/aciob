@@ -21,7 +21,7 @@
     </div>
 
     <div id="subtitle" align="center">
-        <h2> A Directory for amazing web 3 projects</h2>
+        <h2> A Directory for amazing web3 projects</h2>
     </div>
     <br>
     <div class="column">
@@ -31,7 +31,9 @@
                     <label for="query" class="form-label">
                         <h3>Enter Your Search Query Here</h3>
                     </label>
-                    <input type="text" name="query" class="form-control" id="query" required>
+                    <div class="container" id="search-form">
+                        <input type="text" name="query" class="form-control" id="query" required>
+                    </div>
                 </div>
                 <br>
                 <div id="search-button">
@@ -45,9 +47,11 @@
             </div>
         </div>
     </div>
-
-    <div class="container">
-
+    <br>
+    <div class="container" id="search-result">
+        <h2>Search Result</h2>
+        <div class="container">
+        </div>
     </div>
     <script src="search.js"></script>
 </body>
