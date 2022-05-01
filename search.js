@@ -13,9 +13,12 @@ function searchFunction() {
 
 /*
 
-eventListener is trigger
+eventListener is trigger - this works
 
-.binds the search query to a variable. 
+.binds the search query to a variable - this works the variable is Search query. 
+
+
+
 .check if the value of the project name is shown
 
 if so then we need to pull:
