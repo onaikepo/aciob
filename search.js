@@ -14,6 +14,20 @@
 
 //This connects to the API and fetches all of the data from the records. 
 
+var resultArray = []
+//result array will list each of the individual items in the array. 
+
+var resultCount = 0
+//result count should take the number frm the API for the amount of records which match the formula.
+
+
+function searchTitle() {
+
+    var searchHeader = 'Search Result'
+    var searchResultTitle = document.getElementById("search-result");
+
+    searchResultTitle.innerHTML = searchHeader;
+}
 
 var responseData = ''
 
@@ -25,7 +39,7 @@ function indexerFunction() {
         var xhr = new XMLHttpRequest();
         xhr.open("GET", url);
 
-        xhr.setRequestHeader("Authorization", process.env.airtable_bearer_key);
+        xhr.setRequestHeader("Authorization", process.env.bearer_key);
 
         xhr.onreadystatechange = function () {
             if (xhr.readyState === 4) {
@@ -40,39 +54,38 @@ function indexerFunction() {
         var responseData = xhr.responseText;
     }
 
-    function displayResults() {
-        //expects and array. 
-        //for each item in the array create a new <div> 
-
-        for (let i = 0; i < resultCount; i++) {
-            // Runs the length of the result array. 
-            console.log('Walking east one step');
-            const node = document.createElement("div");
-            const nameNode = document.createElement("h2");
-            const descNode = document.createElement("p");
-            const urlString = document.createElement('p');
-        }
-
-    }
-
-    const searchListenser = document.getElementById("search-submit");
-    searchListenser.addEventListener("click", searchFunction);
-
-    function searchFunction() {
-        var searchQuery = document.getElementById("query").value;
-        alert('You searched for' + " " + searchQuery);
-        indexerFunction();
-    }
-
-    var resultArray = []
-    //result array will list each of the individual items in the array. 
-
-    var resultCount = 0
-    //result count should take the number frm the API for the amount of records which match the formula. 
-
-
 }
 
+const searchListenser = document.getElementById("search-submit");
+searchListenser.addEventListener("click", searchFunction);
+
+function searchFunction() {
+    var searchQuery = document.getElementById("query").value;
+    alert('You searched for' + " " + searchQuery);
+    earchTitle();
+    indexerFunction();
+}
+
+
+
+
+
+
+
+function displayResults() {
+    //expects and array. 
+    //for each item in the array create a new <div> 
+
+    for (let i = 0; i < resultCount; i++) {
+        // Runs the length of the result array. 
+        console.log('Walking east one step');
+        const node = document.createElement("div");
+        const nameNode = document.createElement("h2");
+        const descNode = document.createElement("p");
+        const urlString = document.createElement('p');
+    }
+
+}
 
 //search query
 
