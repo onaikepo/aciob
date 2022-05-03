@@ -37,7 +37,7 @@ function fetchData() {
     var xhr = new XMLHttpRequest();
     xhr.open("GET", url);
 
-    xhr.setRequestHeader("Authorization", process.env.bearer_key);
+    xhr.setRequestHeader("Authorization", process.env.airtable_bearer_key);
 
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4) {
@@ -63,25 +63,27 @@ function searchFunction() {
 }
 
 
+function displayResults() {
 
+    JSON.parse(responseData)
 
+    var searchResult = document.getElementById("search-result");
 
+    searchResult.innerHTML = responseData;
 
-
-function displayResults(responseData) {
     //expects and array. 
     //for each item in the array create a new <div> 
 
-    for (let i = 0; i < resultCount; i++) {
+    /*for (let i = 0; i < resultCount; i++) {
         // Runs the length of the result array. 
         console.log('Walking east one step');
         const node = document.createElement("div");
         const nameNode = document.createElement("h2");
         const descNode = document.createElement("p");
-        const urlString = document.createElement('p');
-    }
-
+        const urlString = document.createElement('p');*/
 }
+
+
 
 //search query
 
