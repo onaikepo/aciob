@@ -62,7 +62,7 @@ searchListenser.addEventListener("click", searchFunction);
 function searchFunction() {
     var searchQuery = document.getElementById("query").value;
     alert('You searched for' + " " + searchQuery);
-    earchTitle();
+    searchTitle();
     indexerFunction();
 }
 
