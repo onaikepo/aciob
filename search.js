@@ -31,29 +31,25 @@ function searchTitle() {
 
 var responseData = ''
 
-function indexerFunction() {
+function fetchData() {
+    var url = "https://api.airtable.com/v0/appmaFyHEvGhBLhuV/tbliErYubz0325AdX?fields%5B%5D=_reponame&fields%5B%5D=_topics&fields%5B%5D=_description&fields%5B%5D=_homepage";
 
-    function fetchData() {
-        var url = "https://api.airtable.com/v0/appmaFyHEvGhBLhuV/tbliErYubz0325AdX?fields%5B%5D=_reponame&fields%5B%5D=_topics&fields%5B%5D=_description&fields%5B%5D=_homepage";
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", url);
 
-        var xhr = new XMLHttpRequest();
-        xhr.open("GET", url);
+    xhr.setRequestHeader("Authorization", process.env.bearer_key);
 
-        xhr.setRequestHeader("Authorization", process.env.bearer_key);
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) {
+            console.log(xhr.status);
+            console.log(xhr.responseText);
+            alert(xhr.responseText);
+        }
+    };
 
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState === 4) {
-                console.log(xhr.status);
-                console.log(xhr.responseText);
-                alert(xhr.responseText);
-            }
-        };
+    xhr.send();
 
-        xhr.send();
-
-        var responseData = xhr.responseText;
-    }
-
+    var responseData = xhr.responseText;
 }
 
 const searchListenser = document.getElementById("search-submit");
@@ -63,7 +59,7 @@ function searchFunction() {
     var searchQuery = document.getElementById("query").value;
     alert('You searched for' + " " + searchQuery);
     searchTitle();
-    indexerFunction();
+    fetchData();
 }
 
 
