@@ -72,7 +72,7 @@ function searchFunction() {
 
 
 
-function displayResults() {
+function displayResults(responseData) {
     //expects and array. 
     //for each item in the array create a new <div> 
 
